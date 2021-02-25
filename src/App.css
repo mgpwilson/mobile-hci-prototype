@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.topSection {
+  background-color: #282c34;
+  display: flex;
+  flex: 1;
+  height: 70vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.bottomSection {
+  height: 30vh;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.topView {
+  width: 100vw;
+  height: 100%;
+  background-color: green;
+}
+
+.watchScreen {
+  background-color: black;
+  height: 250px;
+  width: 250px;
+  font-size: calc(10px + 2vmin);
+}
