@@ -1,21 +1,23 @@
-import './App.css';
-import {Watch} from "./components/Watch";
-import {Movement} from "./components/MovementHandler";
+import styled from "styled-components";
 
-function App() {
+import Glasses from "./components/Glasses";
+import Video from "./components/Video";
+import Watch from "./components/Watch";
+
+const App = () => {
   return (
-    <div className="App">
-      <div className="topSection">
-        <div className="topView">
-          <p>BACKGROUND GOES HERE</p>
-          <Movement/>
-        </div>
-      </div>
-      <div className="bottomSection">
-        <Watch/>
-      </div>
-    </div>
+    <Container>
+      <Video />
+      <Glasses />
+      <Watch />
+    </Container>
   );
-}
+};
 
 export default App;
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+`;
