@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import useResizeObserver from '../hooks/useResizeObserver';
-import { Widgets } from './Widgets';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import useResizeObserver from "../hooks/useResizeObserver";
+import { Widgets } from "./Widgets";
 
-export const Glasses = (props) => {
+const Glasses = (props) => {
   const [imageRef, { contentRect }, imageNode] = useResizeObserver();
   const [widthFactor, setWidthFactor] = useState(null);
   const [heightFactor, setHeightFactor] = useState(null);
@@ -23,8 +23,10 @@ export const Glasses = (props) => {
       <GlassesPNG src="/assets/glasses_closeup.png" ref={imageRef} />
       <Widgets widthFactor={widthFactor} heightFactor={heightFactor} />
     </Wrapper>
-  )
-}
+  );
+};
+
+export default Glasses;
 
 const Wrapper = styled.div`
   position: absolute;

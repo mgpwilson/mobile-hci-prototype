@@ -1,19 +1,27 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import * as React from "react";
+import styled from "styled-components";
 
-export const Video = (props) => {
+const Video = (props) => {
   return (
     <VideoContainer>
-      <iframe title="RunningVideo" src="https://www.youtube.com/embed/K_K_EHDaSew?controls=0&autoplay=1&mute=1" frameBorder="0" allow="autoplay;" allowFullScreen></iframe>
+      <iframe
+        title="RunningVideo"
+        src="https://www.youtube.com/embed/K_K_EHDaSew?controls=0&autoplay=1&mute=1"
+        frameBorder="0"
+        allow="autoplay;"
+        allowFullScreen
+      ></iframe>
     </VideoContainer>
-  )
-}
+  );
+};
+
+export default Video;
 
 const VideoContainer = styled.div`
-//   position: absolute;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
+  //   position: absolute;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
 
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */

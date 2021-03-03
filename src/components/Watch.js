@@ -1,15 +1,16 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Watch = (props) => {
+const Watch = (props) => {
   return (
     <Wrapper>
       <div className="watchScreen">
-        <p>Watch Screen</p>
+        <span>Watch Screen</span>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
+
+export default Watch;
 
 const Wrapper = styled.div`
   position: absolute;
