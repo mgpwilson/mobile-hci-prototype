@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Glasses from "./components/Glasses";
+import { Movement } from "./components/MovementHandler";
 import Video from "./components/Video";
 import Watch from "./components/Watch";
 
@@ -10,6 +11,7 @@ const App = () => {
       <Video />
       <Glasses />
       <Watch />
+      <Movement />
     </Container>
   );
 };

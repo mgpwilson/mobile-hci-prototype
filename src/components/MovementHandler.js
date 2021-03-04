@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-
+import React, { useEffect } from 'react';
+import styled from "styled-components";
 
 export const useMovementKeyPress = (start, duration, target) => {
   //TODO pass this as param
@@ -13,9 +13,9 @@ export const useMovementKeyPress = (start, duration, target) => {
 
   useEffect(() => {
     function onKeyup(e) {
-      const MOVEMENTS = {j: 'jump', d: 'duck', h: 'hit'};
+      const MOVEMENTS = { j: 'jump', d: 'duck', h: 'hit' };
       console.log(e.key);
-      if(Object.keys(MOVEMENTS).includes(e.key)) {
+      if (Object.keys(MOVEMENTS).includes(e.key)) {
         setMove({
           targetMovement: target,
           type: MOVEMENTS[e.key],
@@ -59,8 +59,8 @@ export const useMovementCountdown = (start, duration, lastMovement) => {
       });
       setNow(now < end + 1000 ? (new Date()).getTime() : null);
     }
-    if(now < end) setTimeout(() => updateCountdown(), 500);
-    else if(now !== null && now < end + 1000) {
+    if (now < end) setTimeout(() => updateCountdown(), 500);
+    else if (now !== null && now < end + 1000) {
       updateCountdown();
       setNow(null);
     }
@@ -73,14 +73,14 @@ export const useMovementFeedbackMessage = (move, countdown, target) => {
   const [message, setMessage] = React.useState(null);
 
   useEffect(() => {
-    if(target){
-      if(!countdown.success){
+    if (target) {
+      if (!countdown.success) {
         let remaining = countdown.remainingSeconds !== null ? countdown.remainingSeconds : "";
         setMessage(target.toUpperCase() + " in " + remaining + "...");
       }
-      else if(countdown.success) setMessage("SUCCESS");
+      else if (countdown.success) setMessage("SUCCESS");
     }
-    else if(!target && move.type !== null && !move.success) setMessage("You " + move.type);
+    else if (!target && move.type !== null && !move.success) setMessage("You " + move.type);
   }, [message, move, countdown, target]);
 
   return message;
@@ -119,32 +119,36 @@ export const MovementHandler = (props) => {
 
   //TODO children? so that can display whatever inside
   return (
-    <div className="movement">
+    <StyledMovementHandler>
       {childrenWithProps}
-    </div>
+    </StyledMovementHandler>
   )
 }
 
 export const Movement = (props) => {
   return (
-    <MovementHandler>
-      <MovementButton/>
-      {/*<MovementDebugging/>*/}
-      <MovementFeedback/>
-    </MovementHandler>
+    <Wrapper>
+      <MovementHandler>
+        <MovementButton />
+        {/*<MovementDebugging/>*/}
+        <MovementFeedback />
+      </MovementHandler>
+    </Wrapper>
   )
 
 }
 
 export const MovementButton = (props) => {
   return (
-    <button onClick={() => props.startCountdown('jump')}>Movement</button>
+    <div>
+      <Button onClick={() => props.startCountdown('jump')}>Movement</Button>
+    </div>
   )
 }
 
 export const MovementFeedback = (props) => {
   return (
-    <div><p>{props.feedbackMessage}</p></div>
+    <StyledMovementFeedback>{props.feedbackMessage}</StyledMovementFeedback>
   )
 }
 
@@ -156,3 +160,48 @@ export const MovementDebugging = (props) => {
     </div>
   )
 }
+
+const Button = styled.button`
+  border: 2px solid #3fc0b6;
+  background-color: transparent;
+  border-radius: 5px;
+  color: #3fc0b6;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #3fc0b6;
+    color: #fff;
+  }
+`;
+
+const StyledMovementFeedback = styled.div`
+  background-color: rgba(63, 192, 182, 0.4);
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 1rem;
+`;
+
+const StyledMovementHandler = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  &>div {
+    margin: 2px 10px;
+  }
+`;
+
+const Wrapper = styled.div`
+  position: absolute;
+  bottom: 10px;
+  height: 40px;
+  width: calc(100% - 10px);
+  /* border: 1px solid rgba(0, 0, 0, 0.5); */
+  border-radius: 8px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  font-size: calc(5px + 2vmin);
+  text-align: center;
+  color: #fff;
+`;
