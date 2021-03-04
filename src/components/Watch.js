@@ -16,13 +16,13 @@ const Wrapper = styled.div`
   position: absolute;
   bottom: 5px;
   right: 5px;
-  border: 1px solid white;
+  border: 2px solid rgba(63, 192, 182, 0.8);
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.31);
+  background-color: rgba(63, 192, 182, 0.2);
   height: 200px;
   width: 200px;
   font-size: calc(5px + 2vmin);
-  color: #fff;
+  color: rgba(63, 192, 182, 1);
   text-align: center;
   z-index: 7 !important;
 `;
