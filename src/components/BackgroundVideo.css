@@ -1,0 +1,23 @@
+.videoContainer {
+  position: fixed;
+  bottom: 0;
+  left: -10%; /* Centres video when width is 120% view width */
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(100px);
+  }
+}
+
+video {
+  display: block;
+  width: 120vw; /* 120% view width so there is height offscreen */
+}
+
+.animated {
+  animation: jump 0.6s ease-in;
+}
