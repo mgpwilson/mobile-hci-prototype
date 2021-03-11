@@ -5,6 +5,7 @@ import Glasses from "./components/Glasses";
 import { Movement } from "./components/MovementHandler";
 import Watch from "./components/Watch";
 import BackgroundVideo from "./components/BackgroundVideo";
+import Obstacles from "./components/Obstacles";
 
 const App = () => {
   const [jump, setJump] = useState(false);
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <Container>
       <BackgroundVideo jump={jump} setJump={setJump} />
+      <Obstacles />
       <Glasses />
       <Watch />
       <Movement />
