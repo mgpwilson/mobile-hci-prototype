@@ -1,0 +1,16 @@
+.banana {
+  position: fixed;
+  top: 20%;
+  left: calc(50% - 5vw);
+  width: 10vw;
+  animation: getCloser 6s infinite linear;
+}
+
+@keyframes getCloser {
+  from {
+    transform: scale(0.3);
+  }
+  to {
+    transform: scale(2.5) translateY(250%);
+  }
+}
