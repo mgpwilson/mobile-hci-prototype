@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./main.css";
 
@@ -6,30 +6,27 @@ import banana_png from "./assets/banana.png";
 import coin_gif from "./assets/coin.gif";
 import jump_wav from "./assets/jump.wav";
 
+import useInterval from "./hooks/useInterval";
 import Glasses from "./components/Glasses";
 import Watch from "./components/Watch";
 import BackgroundVideo from "./components/BackgroundVideo";
 import Item from "./components/Item";
-import useInterval from "./hooks/useInterval";
+import GhostRunner from "./components/GhostRunner";
 
 const App = () => {
   const [jumping, setJumping] = useState(false);
-
   const [obstacleOnScreen, setObstacleOnScreen] = useState(false);
   const [obstacleInRange, setObstacleInRange] = useState(false);
   const [obstacleAvoided, setObstacleAvoided] = useState(false);
-
   const [coinOnScreen, setCoinOnScreen] = useState(false);
-  const [coinCount, setCoinCount] = useState(0);
 
   const jump_sound = new Audio(jump_wav);
 
-  // "Listen" for jumping state whenever obstacle is in range
-  useInterval(() => {
-    if (obstacleInRange && jumping) {
+  useEffect(() => {
+    if (obstacleInRange) {
       setObstacleAvoided(true);
     }
-  }, 500);
+  }, [jumping]);
 
   // Create obstacle or coin every 7 seconds
   // Ratio: 3 obstacles : 7 coins
@@ -54,6 +51,7 @@ const App = () => {
   return (
     <Container>
       <BackgroundVideo jumping={jumping} setJumping={setJumping} />
+
       {obstacleOnScreen && (
         <Item
           obstacle
@@ -65,6 +63,7 @@ const App = () => {
           setObstacleAvoided={setObstacleAvoided}
         />
       )}
+
       {coinOnScreen && (
         <Item
           jumping={jumping}
@@ -72,8 +71,11 @@ const App = () => {
           image={coin_gif}
         />
       )}
+
       <Glasses />
       <Watch />
+
+      <GhostRunner />
 
       <ControlPanel>
         <button
@@ -103,5 +105,4 @@ const Container = styled.div`
 const ControlPanel = styled.div`
   position: fixed;
   bottom: 0;
-  /* left: 50%; */
 `;
