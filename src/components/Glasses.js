@@ -40,4 +40,5 @@ const GlassesPNG = styled.img`
   top: 40px;
   width: 100%;
   z-index: 6 !important;
+  opacity: 0.2; /* Maybe remove this? */
 `;

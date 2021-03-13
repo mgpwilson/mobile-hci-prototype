@@ -1,24 +1,18 @@
-import "./BackgroundVideo.css";
-import background_video from "../assets/background.mp4";
-import banana from "../assets/banana.png";
+import background_mp4 from "../assets/background.mp4";
 
 const BackgroundVideo = (props) => {
-  const { jump, setJump } = props;
+  const { jumping, setJumping } = props;
 
   return (
-    <div className="videoContainer">
-      <video
-        className={jump ? "jumpAnimation" : ""}
-        loop
-        autoPlay
-        muted
-        onClick={() => setJump(true)}
-        onAnimationEnd={() => setJump(false)}
-      >
-        <source src={background_video} type="video/mp4" />
-      </video>
-      <img className="banana" src={banana} alt="banana" />
-    </div>
+    <video
+      loop
+      autoPlay
+      muted
+      className={jumping ? "jump-animation" : ""}
+      onAnimationEnd={() => setJumping(false)}
+    >
+      <source src={background_mp4} type="video/mp4" />
+    </video>
   );
 };
 
