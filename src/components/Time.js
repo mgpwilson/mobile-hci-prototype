@@ -1,14 +1,14 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 
+export function pad(num, size) {
+  num = num.toString();
+  while (num.length < size) num = "0" + num;
+  return num;
+}
+
 
 export const Time = (props) => {
-  function pad(num, size) {
-    num = num.toString();
-    while (num.length < size) num = "0" + num;
-    return num;
-  }
-
   const getTimeNow = () => {
     let currentDate = new Date();
     let currentTime = currentDate.getHours() + ":" + pad(currentDate.getMinutes(), 2) /*+ ":" + currentDate.getSeconds()*/;
