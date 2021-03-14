@@ -20,13 +20,17 @@ const App = () => {
   const [obstacleAvoided, setObstacleAvoided] = useState(false);
   const [coinOnScreen, setCoinOnScreen] = useState(false);
 
+  const [coins, setCoins] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [km, setKm] = useState(0);
+
   const jump_sound = new Audio(jump_wav);
 
   useEffect(() => {
     if (obstacleInRange) {
       setObstacleAvoided(true);
     }
-  }, [jumping]);
+  }, [jumping, obstacleInRange]);
 
   // Create obstacle or coin every 7 seconds
   // Ratio: 3 obstacles : 7 coins
@@ -40,12 +44,18 @@ const App = () => {
     }
   }, 7000);
 
+  useInterval(() => {
+    setSeconds(seconds + 1);
+    setKm((parseFloat(km) + 0.003).toFixed(3));
+  }, 1000);
+
   const createObstacle = () => {
     setObstacleOnScreen(true);
   };
 
   const createCoin = () => {
     setCoinOnScreen(true);
+    setTimeout(() => setCoins(coins + 1), 5000);
   };
 
   return (
@@ -73,7 +83,7 @@ const App = () => {
       )}
 
       <Glasses />
-      <Watch />
+      <Watch coins={coins} seconds={seconds} km={km}/>
 
       <GhostRunner />
 

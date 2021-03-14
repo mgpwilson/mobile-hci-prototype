@@ -1,9 +1,8 @@
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import React from "react";
 import {Button, Menu, MenuItem} from "@material-ui/core";
 
-export const MainMenuScreen = (props) => {
+export const MainMenuScreen = () => {
   return (
     <Grid container spacing={1} style={{
       margin: 0,
@@ -15,18 +14,6 @@ export const MainMenuScreen = (props) => {
       </Grid>
       <Grid item xs={12} style={{textAlign: 'center'}}>
         <OpenLeaderBoardMenu/>
-      </Grid>
-      <Grid item xs={12} style={{textAlign: 'center'}}>
-        <StartRunMenu/>
-      </Grid>
-      <Grid item xs={12} style={{textAlign: 'center'}}>
-        <OpenLeaderBoardMenu/>
-      </Grid>
-      <Grid item xs={6}>
-        <Paper >xs=6</Paper>
-      </Grid>
-      <Grid item xs={6}>
-        <Paper >xs=6</Paper>
       </Grid>
     </Grid>
   )

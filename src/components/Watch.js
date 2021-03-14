@@ -13,6 +13,7 @@ import {grey} from "@material-ui/core/colors";
 import Pagination from "@material-ui/lab/Pagination";
 import Grid from "@material-ui/core/Grid";
 import {Time} from "./Time";
+import {ActiveRun} from "../screens/watch/ActiveRun";
 
 
 const Watch = (props) => {
@@ -33,7 +34,7 @@ const Watch = (props) => {
           borderRadius: '8px',
         }}
       >
-        <WatchScreens/>
+        <WatchScreens coins={props.coins} seconds={props.seconds} km={props.km}/>
       </Paper>
     </MuiThemeProvider>
   );
@@ -49,19 +50,19 @@ const WatchScreens = (props) => {
 
   const SCREENS = {
     "1": {component: HomeScreen, title: "Daily Goal", showTime: true},
-    "2": {component: HomeScreen, title: "Daily Goal", showTime: true},
+    "2": {component: ActiveRun, title: "Running", showTime: true},
     "3": {component: MainMenuScreen, title: "Menu", showTime: true},
   }
 
   const Screen = (props) => {
     const CurrentScreen = SCREENS[props.page.toString()].component;
-    return <CurrentScreen navigate={() => {}}/>
+    return <CurrentScreen navigate={() => {}} coins={props.coins} seconds={props.seconds} km={props.km}/>
   }
 
   const ScreenHeader = (props) => {
     const screen = SCREENS[props.page.toString()];
     return (
-      <Grid container item>
+      <Grid container>
         <Grid item={9} style={{flexGrow: 1}}>
           <h5 style={{padding: 2, margin: 0}}>{screen.title}</h5>
         </Grid>
@@ -83,10 +84,10 @@ const WatchScreens = (props) => {
       <ScreenHeader page={page}/>
       <Grid item={12}>
         <Box id="watch-screen" style={{maxHeight: 170, width: 200, overflow: 'auto'}}>
-          <Screen page={page}/>
+          <Screen page={page} coins={props.coins} seconds={props.seconds} km={props.km}/>
         </Box>
       </Grid>
-      <Grid container item xs={12} alignItems="center" justify="center" style={{textAlign: 'center'}}>
+      <Grid container item alignItems="center" justify="center" style={{textAlign: 'center'}}>
         <Pagination
           count={3}
           page={page}

@@ -71,3 +71,14 @@ export const LongDate = props => {
     </Typography>
   )
 }
+
+export const TimeElapsed = props => {
+  const minutes = Math.floor(props.seconds/60);
+  const seconds = props.seconds - (minutes*60);
+
+  return (
+    <Typography variant={props.variant} {...props}>
+      {pad(minutes, 2)}:{pad(seconds, 2)}
+    </Typography>
+  )
+}
