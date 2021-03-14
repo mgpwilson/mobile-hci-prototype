@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import styled from "styled-components";
 import "./main.css";
 
@@ -51,6 +51,9 @@ const App = () => {
 
   const createObstacle = () => {
     setObstacleOnScreen(true);
+    setTimeout(() => {
+      if(obstacleAvoided === false) setCoins(coins - 5);
+    }, 3750);
   };
 
   const createCoin = () => {
