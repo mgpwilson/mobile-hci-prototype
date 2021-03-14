@@ -14,6 +14,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import Grid from "@material-ui/core/Grid";
 import {Time} from "./Time";
 import {ActiveRun} from "../screens/watch/ActiveRun";
+import {LeaderBoardScreen} from "../screens/watch/LeaderBoard";
 
 
 const Watch = (props) => {
@@ -25,7 +26,7 @@ const Watch = (props) => {
           bottom:  '5px',
           right:  '5px',
           height:  '220px',
-          width:  '200px',
+          width:  '210px',
           zIndex:  '8 !important',
           display:  'flex',
           flexDirection: 'column',
@@ -52,6 +53,7 @@ const WatchScreens = (props) => {
     "1": {component: HomeScreen, title: "Daily Goal", showTime: true},
     "2": {component: ActiveRun, title: "Running", showTime: true},
     "3": {component: MainMenuScreen, title: "Menu", showTime: true},
+    "4": {component: LeaderBoardScreen, title: "Leaderboard", showTime: true},
   }
 
   const Screen = (props) => {
@@ -83,13 +85,13 @@ const WatchScreens = (props) => {
     }}>
       <ScreenHeader page={page}/>
       <Grid item={12}>
-        <Box id="watch-screen" style={{maxHeight: 170, width: 200, overflow: 'auto'}}>
+        <Box id="watch-screen" style={{maxHeight: 170, width: 210, overflow: 'auto'}}>
           <Screen page={page} coins={props.coins} seconds={props.seconds} km={props.km}/>
         </Box>
       </Grid>
       <Grid container item alignItems="center" justify="center" style={{textAlign: 'center'}}>
         <Pagination
-          count={3}
+          count={4}
           page={page}
           size="small"
           onChange={(event, page) => onChange(event, page)}
