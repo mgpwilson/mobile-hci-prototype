@@ -45,20 +45,19 @@ const WatchScreens = (props) => {
   const [page, setPage] = React.useState(1);
 
   const onChange = (event, page) => {
-    console.log(event, page);
     setPage(page);
   }
 
   const SCREENS = {
     "1": {component: HomeScreen, title: "Daily Goal", showTime: true},
-    "2": {component: ActiveRun, title: "Running", showTime: true},
-    "3": {component: MainMenuScreen, title: "Menu", showTime: true},
-    "4": {component: LeaderBoardScreen, title: "Leaderboard", showTime: true},
+    "2": {component: MainMenuScreen, title: "Menu", showTime: true},
+    "3": {component: LeaderBoardScreen, title: "Leaderboard", showTime: true},
+    "4": {component: ActiveRun, title: "Running", showTime: true},
   }
 
   const Screen = (props) => {
     const CurrentScreen = SCREENS[props.page.toString()].component;
-    return <CurrentScreen navigate={() => {}} coins={props.coins} seconds={props.seconds} km={props.km}/>
+    return <CurrentScreen coins={props.coins} seconds={props.seconds} km={props.km} setPage={(page) => setPage(page)}/>
   }
 
   const ScreenHeader = (props) => {
@@ -86,12 +85,12 @@ const WatchScreens = (props) => {
       <ScreenHeader page={page}/>
       <Grid item={12}>
         <Box id="watch-screen" style={{maxHeight: 170, width: 210, overflow: 'auto'}}>
-          <Screen page={page} coins={props.coins} seconds={props.seconds} km={props.km}/>
+          <Screen page={page} coins={props.coins} seconds={props.seconds} km={props.km} setPage={setPage}/>
         </Box>
       </Grid>
       <Grid container item alignItems="center" justify="center" style={{textAlign: 'center'}}>
         <Pagination
-          count={4}
+          count={3}
           page={page}
           size="small"
           onChange={(event, page) => onChange(event, page)}
