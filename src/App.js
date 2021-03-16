@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./main.css";
 
@@ -52,7 +52,7 @@ const App = () => {
   const createObstacle = () => {
     setObstacleOnScreen(true);
     setTimeout(() => {
-      if(obstacleAvoided === false) setCoins(coins - 5);
+      if (obstacleAvoided === false) setCoins(coins - 5);
     }, 3750);
   };
 
@@ -85,8 +85,8 @@ const App = () => {
         />
       )}
 
-      <Glasses />
-      <Watch coins={coins} seconds={seconds} km={km}/>
+      <Glasses coins={coins} seconds={seconds} km={km} />
+      <Watch coins={coins} seconds={seconds} km={km} />
 
       <GhostRunner />
 

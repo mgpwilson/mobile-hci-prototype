@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   `};
 
   padding: 2px 4px;
-  color: ${p => p.dark ? '#e6e6e6' : '#282c34'};
+  color: ${p => p.dark ? '#bcbcbc' : '#282c34'};
   text-align: ${p => p.vector.textAlignment};
   font-size: ${p => (23 * p.widthFactor)}px;
   border: 1px solid ${p => p.dark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
