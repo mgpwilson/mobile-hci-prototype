@@ -3,7 +3,7 @@ import styled from "styled-components";
 import useResizeObserver from "../hooks/useResizeObserver";
 import { Widgets } from "./Widgets";
 
-const Glasses = (props) => {
+const Glasses = ({ seconds, km, coins }) => {
   const [imageRef, { contentRect }, imageNode] = useResizeObserver();
   const [widthFactor, setWidthFactor] = useState(null);
   const [heightFactor, setHeightFactor] = useState(null);
@@ -21,7 +21,7 @@ const Glasses = (props) => {
   return (
     <Wrapper>
       <GlassesPNG src="/assets/glasses_closeup.png" ref={imageRef} />
-      <Widgets widthFactor={widthFactor} heightFactor={heightFactor} />
+      <Widgets widthFactor={widthFactor} heightFactor={heightFactor} seconds={seconds} km={km} coins={coins} />
     </Wrapper>
   );
 };
