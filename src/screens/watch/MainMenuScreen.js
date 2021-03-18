@@ -15,7 +15,7 @@ export const MainMenuScreen = (props) => {
         <StartRunMenu setPage={() => props.setPage(4)}/>
       </Grid>
       <Grid item xs={12} style={{textAlign: 'center'}}>
-        <OpenLeaderBoardMenu setPage={() => props.setPage(3)}/>
+        <OpenLeaderBoardMenu setPage={function(){props.setShowLeaderboard(true); props.setPage(4)}}/>
       </Grid>
     </Grid>
   )

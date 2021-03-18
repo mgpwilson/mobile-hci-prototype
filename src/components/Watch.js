@@ -35,7 +35,7 @@ const Watch = (props) => {
           borderRadius: '8px',
         }}
       >
-        <WatchScreens coins={props.coins} seconds={props.seconds} km={props.km}/>
+        <WatchScreens coins={props.coins} seconds={props.seconds} km={props.km} setShowLeaderboard={props.setShowLeaderboard}/>
       </Paper>
     </MuiThemeProvider>
   );
@@ -43,6 +43,7 @@ const Watch = (props) => {
 
 const WatchScreens = (props) => {
   const [page, setPage] = React.useState(1);
+  const setShowLeaderboard = props.setShowLeaderboard;
 
   const onChange = (event, page) => {
     setPage(page);
@@ -57,7 +58,7 @@ const WatchScreens = (props) => {
 
   const Screen = (props) => {
     const CurrentScreen = SCREENS[props.page.toString()].component;
-    return <CurrentScreen coins={props.coins} seconds={props.seconds} km={props.km} setPage={(page) => setPage(page)}/>
+    return <CurrentScreen coins={props.coins} seconds={props.seconds} km={props.km} setShowLeaderboard={setShowLeaderboard} setPage={(page) => setPage(page)}/>
   }
 
   const ScreenHeader = (props) => {

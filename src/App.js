@@ -12,6 +12,7 @@ import Watch from "./components/Watch";
 import BackgroundVideo from "./components/BackgroundVideo";
 import Item from "./components/Item";
 import GhostRunner from "./components/GhostRunner";
+import LeaderBoardGlasses from "./components/LeaderBoardGlasses";
 
 const App = () => {
   const [jumping, setJumping] = useState(false);
@@ -19,6 +20,7 @@ const App = () => {
   const [obstacleInRange, setObstacleInRange] = useState(false);
   const [obstacleAvoided, setObstacleAvoided] = useState(false);
   const [coinOnScreen, setCoinOnScreen] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
 
   const [coins, setCoins] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -85,8 +87,16 @@ const App = () => {
         />
       )}
 
+      {showLeaderboard && (
+        <LeaderBoardGlasses style={{zIndex: 999}}
+          showLeaderboard={showLeaderboard}
+          setShowLeaderboard={setShowLeaderboard}
+        />
+      )}
+
       <Glasses coins={coins} seconds={seconds} km={km} />
-      <Watch coins={coins} seconds={seconds} km={km} />
+      <Watch coins={coins} seconds={seconds} km={km} setShowLeaderboard={setShowLeaderboard}/>
+
 
       <GhostRunner />
 
