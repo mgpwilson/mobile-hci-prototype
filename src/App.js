@@ -27,7 +27,7 @@ const App = () => {
   const jump_sound = new Audio(jump_wav);
 
   useEffect(() => {
-    if (obstacleInRange) {
+    if (obstacleInRange && jumping) {
       setObstacleAvoided(true);
     }
   }, [jumping, obstacleInRange]);
@@ -51,14 +51,10 @@ const App = () => {
 
   const createObstacle = () => {
     setObstacleOnScreen(true);
-    setTimeout(() => {
-      if (obstacleAvoided === false) setCoins(coins - 5);
-    }, 3750);
   };
 
   const createCoin = () => {
     setCoinOnScreen(true);
-    setTimeout(() => setCoins(coins + 1), 5000);
   };
 
   return (
@@ -74,6 +70,8 @@ const App = () => {
           setObstacleInRange={setObstacleInRange}
           obstacleAvoided={obstacleAvoided}
           setObstacleAvoided={setObstacleAvoided}
+          coins={coins}
+          setCoins={setCoins}
         />
       )}
 
@@ -82,6 +80,8 @@ const App = () => {
           jumping={jumping}
           setItemOnScreen={setCoinOnScreen}
           image={coin_gif}
+          coins={coins}
+          setCoins={setCoins}
         />
       )}
 

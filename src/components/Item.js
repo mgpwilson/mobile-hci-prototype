@@ -10,6 +10,8 @@ const Item = (props) => {
     setObstacleInRange,
     obstacleAvoided,
     setObstacleAvoided,
+    coins,
+    setCoins,
   } = props;
 
   const slip = new Audio(power_down_wav);
@@ -18,11 +20,22 @@ const Item = (props) => {
   const handleItemUnmount = () => {
     setItemOnScreen(false);
     if (obstacle) {
-      if (!obstacleAvoided) slip.play();
+      if (!obstacleAvoided) {
+        slip.play();
+        setCoins((coins) => {
+          let new_coins = coins - 5;
+          if (new_coins < 0) {
+            return 0;
+          } else {
+            return new_coins;
+          }
+        });
+      }
       setObstacleInRange(false);
       setObstacleAvoided(false);
     } else {
       coin.play();
+      setCoins((coins) => coins + 1);
     }
   };
 
