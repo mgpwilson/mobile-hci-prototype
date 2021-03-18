@@ -27,7 +27,7 @@ const Watch = (props) => {
           right:  '5px',
           height:  '220px',
           width:  '210px',
-          zIndex:  '8 !important',
+          zIndex:  '999',
           display:  'flex',
           flexDirection: 'column',
           backgroundColor:  'black',
@@ -35,7 +35,7 @@ const Watch = (props) => {
           borderRadius: '8px',
         }}
       >
-        <WatchScreens coins={props.coins} seconds={props.seconds} km={props.km} setShowLeaderboard={props.setShowLeaderboard}/>
+        <WatchScreens coins={props.coins} seconds={props.seconds} km={props.km} setShowLeaderboard={props.setShowLeaderboard} />
       </Paper>
     </MuiThemeProvider>
   );

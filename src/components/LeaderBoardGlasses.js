@@ -42,7 +42,7 @@ const LeaderBoardGlasses = (props) => {
           return (
             <Button style={{margin: 10, marginLeft: 40, backgroundColor: grey['400'], width: '100%', zIndex: 999,}}onMouseEnter={() => setButtonState(true)}
             onMouseLeave={() => setButtonState(false)}
-            onClick={function(){props.setShowLeaderboard(false);}}>
+            onClick={function(){props.setChallenger(value); props.setShowLeaderboard(false); props.setIsChallenging(true)}}>
               <Grid container item >
                 <Grid container alignItems="center" justify="center" item>
                   <Grid item={2} style={{padding: 6}}>

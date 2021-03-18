@@ -21,6 +21,8 @@ const App = () => {
   const [obstacleAvoided, setObstacleAvoided] = useState(false);
   const [coinOnScreen, setCoinOnScreen] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [isChallenging, setIsChallenging] = useState(false);
+  var challenger = "Emily";
 
   const [coins, setCoins] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -63,6 +65,10 @@ const App = () => {
     setTimeout(() => setCoins(coins + 1), 5000);
   };
 
+  const setChallenger = (name) => {
+    challenger = name;
+  }
+
   return (
     <Container>
       <BackgroundVideo jumping={jumping} setJumping={setJumping} />
@@ -91,6 +97,8 @@ const App = () => {
         <LeaderBoardGlasses style={{zIndex: 999}}
           showLeaderboard={showLeaderboard}
           setShowLeaderboard={setShowLeaderboard}
+          setChallenger = {setChallenger}
+          setIsChallenging = {setIsChallenging}
         />
       )}
 
@@ -98,7 +106,7 @@ const App = () => {
       <Watch coins={coins} seconds={seconds} km={km} setShowLeaderboard={setShowLeaderboard}/>
 
 
-      <GhostRunner />
+      <GhostRunner challenger={challenger} isChallenging={isChallenging}/>
 
       <ControlPanel>
         <button
