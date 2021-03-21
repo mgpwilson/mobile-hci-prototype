@@ -88,7 +88,7 @@ const App = () => {
       <Glasses coins={coins} seconds={seconds} km={km} />
       <Watch coins={coins} seconds={seconds} km={km} />
 
-      <GhostRunner />
+      {/* <GhostRunner /> */}
 
       <ControlPanel>
         <button

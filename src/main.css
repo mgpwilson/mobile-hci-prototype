@@ -40,31 +40,28 @@ video {
     transform: scale(0);
   }
   to {
-    transform: scale(2) translateY(250%);
+    transform: scale(2) translateY(75vh);
   }
 }
 
-#watch-screen::-webkit-scrollbar-track
-{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+#watch-screen::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   /*background-color: #F5F5F5;*/
   background-color: #001100;
   margin: 5px;
 }
 
-#watch-screen::-webkit-scrollbar
-{
+#watch-screen::-webkit-scrollbar {
   width: 6px;
   /*background-color: #F5F5F5;*/
   background-color: #002200;
 }
 
-#watch-screen::-webkit-scrollbar-thumb
-{
+#watch-screen::-webkit-scrollbar-thumb {
   border-radius: 10px;
   margin: 5px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   /*background-color: #D62929;*/
   background-color: #444444;
 }
