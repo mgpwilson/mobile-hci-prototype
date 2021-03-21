@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import useResizeObserver from "../hooks/useResizeObserver";
 import { Widgets } from "./Widgets";
+import glasses_png from "../assets/glasses.png";
 
 const Glasses = ({ seconds, km, coins }) => {
   const [imageRef, { contentRect }, imageNode] = useResizeObserver();
@@ -20,8 +21,14 @@ const Glasses = ({ seconds, km, coins }) => {
 
   return (
     <Wrapper>
-      <GlassesPNG src="/assets/glasses_closeup.png" ref={imageRef} />
-      <Widgets widthFactor={widthFactor} heightFactor={heightFactor} seconds={seconds} km={km} coins={coins} />
+      <GlassesPNG src={glasses_png} ref={imageRef} />
+      <Widgets
+        widthFactor={widthFactor}
+        heightFactor={heightFactor}
+        seconds={seconds}
+        km={km}
+        coins={coins}
+      />
     </Wrapper>
   );
 };

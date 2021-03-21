@@ -10,7 +10,6 @@ const Item = (props) => {
     setObstacleInRange,
     obstacleAvoided,
     setObstacleAvoided,
-    coins,
     setCoins,
   } = props;
 
@@ -19,21 +18,19 @@ const Item = (props) => {
 
   const handleItemUnmount = () => {
     setItemOnScreen(false);
+
+    // When obstacle goes offscreen
     if (obstacle) {
+      // If user fails to avoid obstacle
       if (!obstacleAvoided) {
         slip.play();
-        setCoins((coins) => {
-          let new_coins = coins - 5;
-          if (new_coins < 0) {
-            return 0;
-          } else {
-            return new_coins;
-          }
-        });
+        setCoins((coins) => (coins - 2 > 0 ? coins - 2 : 0));
       }
       setObstacleInRange(false);
       setObstacleAvoided(false);
-    } else {
+    }
+    // When coin goes offscreen
+    else {
       coin.play();
       setCoins((coins) => coins + 1);
     }
