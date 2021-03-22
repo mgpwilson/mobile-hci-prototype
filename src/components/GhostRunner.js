@@ -7,7 +7,7 @@ import mario_gif from "../assets/ghost.gif";
 const GhostRunner = (props) => {
   return (
     <Grid>
-      {props.isChallenging ? <Grid alignItems="center" justify="center" style={{position: 'absolute', top: '20%',left:'47%', zIndex:  '999 !important'}}>Challenging {props.challenger}</Grid> : <Grid alignItems="center" justify="center" style={{position: 'absolute', top: '20%',left:'47%', zIndex:  '999 !important'}}> {props.challenger}</Grid>}
+      <Grid alignItems="center" justify="center" style={{position: 'absolute', top: '20%',left:'47%', zIndex:  '999 !important'}}> ~ 7.25kn/h </Grid>
       <Ghost src={mario_gif} alt="runner" />
     </Grid>
   );
